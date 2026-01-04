@@ -47,7 +47,7 @@ const LeadModal: React.FC<LeadModalProps> = ({ isOpen, onClose }) => {
     setStatus('loading');
     
     try {
-      // Simulação de chamada de API para CRM do Grupo Via
+      // Simulação de chamada de API para CRM da Via Group
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       console.log('Lead Capturado:', formData);
@@ -79,8 +79,20 @@ const LeadModal: React.FC<LeadModalProps> = ({ isOpen, onClose }) => {
         onClick={status === 'idle' ? onClose : undefined}
       ></div>
 
-      {/* Modal Content - Fixed visual appearance */}
+      {/* Modal Content */}
       <div className="relative bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden z-[101] transition-all duration-300">
+        
+        {/* Close Button (X) */}
+        <button 
+          onClick={onClose}
+          className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors z-[102] p-2 hover:bg-white/10 rounded-full"
+          aria-label="Fechar formulário"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
         <div className="bg-[#004080] p-6 text-white text-center">
           <h3 className="text-2xl font-bold mb-2">Tenho Interesse</h3>
           <p className="text-blue-100 text-sm">Fale com um especialista em caminhões seminovos.</p>
